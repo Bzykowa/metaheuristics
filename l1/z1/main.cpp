@@ -24,8 +24,8 @@ double g(double x1, double x2, double x3, double x4)
     double product = 1.0;
     for (int i = 0; i < 4; i++)
     {
-        sum += pow(it[i],2);
-        product *= cos(it[i] / sqrt(i+1));
+        sum += pow(it[i], 2);
+        product *= cos(it[i] / sqrt(i + 1));
     }
     return 1.0 + (sum / 4000.0) - product;
 }
@@ -79,13 +79,14 @@ void tweak_xs(tuple<bool, bool, bool, bool> plus, array<double, 4> vec, double s
     vec[3] = get<3>(plus) ? vec[3] + step : vec[3] - step;
 }
 
-int main(int argc, char **argv)
+int main()
 {
     double fmin;
     double fcurr;
-    int t = stoi(argv[1]);
-    int b = stoi(argv[2]);
+    int t, b;
     vector<tuple<bool, bool, bool, bool>> neighbours = gen_neighbours();
+
+    cin >> t >> b;
 
     bool cat = b ? false : true;
     double step = cat ? 0.0001 : 0.001;
@@ -110,7 +111,8 @@ int main(int argc, char **argv)
             xs[i] = cat ? dis_h(gen) : dis_g(gen);
         }
         fcurr = cat ? h(xs[0], xs[1], xs[2], xs[3]) : g(xs[0], xs[1], xs[2], xs[3]);
-        if(fcurr <= fmin){
+        if (fcurr <= fmin)
+        {
             fmin = fcurr;
             minxs = xs;
         }

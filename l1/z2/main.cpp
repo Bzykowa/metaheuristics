@@ -7,10 +7,10 @@
 
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
-    int t = stoi(argv[1]);         //time limit
-    int n = stoi(argv[2]);         //number of cities
+    int t;                         //time limit
+    int n;                         //number of cities
     vector<vector<int>> distances; //distances between cities
     vector<int> min_path;          //best solution
     int min_cost;                  //best path length
@@ -19,6 +19,8 @@ int main(int argc, char **argv)
     vector<vector<int>> tabu;
     vector<int> curr_path;
     int curr_cost;
+
+    cin >> t >> n;
 
     //read distances
     for (int i = 0; i < n; i++)
@@ -33,6 +35,7 @@ int main(int argc, char **argv)
         distances.push_back(new_row);
     }
 
+    /*
     //generate starting path random
     auto gen_path_rand = [](vector<int> path, int n) {
         path.clear();
@@ -44,6 +47,7 @@ int main(int argc, char **argv)
         path.push_back(path[0]);
         return path;
     };
+    */
 
     //generate starting path naively
     auto gen_path_naive = [](vector<vector<int>> dist, int n) {
