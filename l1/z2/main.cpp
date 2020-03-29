@@ -163,7 +163,7 @@ int main()
 
     for (auto i : min_path)
     {
-        cout << i << " ";
+        cout << i+1 << " ";
     }
     cout << endl;
 }
