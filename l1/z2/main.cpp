@@ -107,10 +107,6 @@ int main()
             return false;
     };
 
-    //rng from 1 to n
-    default_random_engine gen;
-    uniform_int_distribution<int> dis(1, n);
-
     //generate x0
     curr_path = gen_path_naive(distances, n);
     curr_cost = path_len(distances, curr_path, n);
